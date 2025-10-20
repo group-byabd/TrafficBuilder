@@ -305,15 +305,15 @@ html {
 }
 
 .faq-container {
+  width: 100%;
   max-width: 1000px;
- 
   margin: 0 auto;
-  background: #fff;          /* fond blanc du bloc */
-  border: 1px solid #ddd;    /* contour gris clair */
-  border-radius: 12px;       /* coins arrondis */
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  overflow: hidden;          /* applique l’arrondi aux enfants */
-  min-height: 300px; /* hauteur minimale du bloc FAQ */
+  overflow: hidden;
+  /* pas de min-height */
 }
 
 /* Chaque question/réponse */
