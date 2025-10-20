@@ -139,7 +139,7 @@ a {
   display: flex;
   flex-direction: column;   /* empile le texte et le bouton */
   align-items: flex-start;  /* aligne à gauche (ou center si tu veux centré) */
-  gap: 5px; 
+  gap: 15px; 
 }
 
 .hero-cta {
