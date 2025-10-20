@@ -1,0 +1,385 @@
+/* ===== STYLES GÉNÉRAUX ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== HEADER FIXE ===== */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: 6px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between; /* logo à gauche, menu à droite */
+  align-items: center;            /* centré verticalement */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  font-size: 2.5em;
+}
+
+.logo-text {
+  font-size: 1.1em;
+  line-height: 1.2;
+  color: #222;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* espace entre liens et bouton */
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: #333;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+.cta-button {
+  background-color: #212529;
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: #495057;
+  transform: translateY(-2px);
+}
+
+/* ===== HERO AVEC VIDÉO ===== */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end; /* contenu en bas */
+  justify-content: flex-start;
+  padding: 0 5% 40px 5%; /* espace bas pour le bouton */
+  box-sizing: border-box;
+  color: #fff;
+  margin-top: 80px; /* espace sous le header fixe */
+}
+
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 2;
+
+  /* Dégradé fluide vers le bas */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0) 75%,       /* transparent sur 75% de la hauteur */
+    rgba(255,255,255,1) 100% /* blanc pur en bas */
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;   /* empile le texte et le bouton */
+  align-items: flex-start;  /* aligne à gauche (ou center si tu veux centré) */
+  gap: 5px; 
+}
+
+.hero-cta {
+  display: inline-block;
+  margin-left: 20px; /* espace depuis le bord gauche */
+  margin-bottom: 0;
+}
+
+/* ===== CONTENU PRINCIPAL ===== */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 40px 40px;
+  background-color: #f4f4f4;
+  position: relative;
+  z-index: 5;
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5em;
+  margin-top: 80px;
+  margin-bottom: 80px;
+  color: #222;
+}
+
+.feature-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+  gap: 60px;
+}
+
+/* inversion fiable avec order */
+.feature-text { order: 1; }
+.feature-card { order: 2; }
+
+.feature-row.reverse .feature-text { order: 2; }
+.feature-row.reverse .feature-card { order: 1; }
+
+.feature-text {
+  flex: 1;
+  min-width: 300px;
+  max-width: 460px;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.6em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.feature-icon.yellow { background-color: #fbc02d; }
+.feature-icon.purple { background-color: #6a1b9a; }
+.feature-icon.blue { background-color: blue; }
+.feature-icon.brown { background-color: #895129; }
+
+.icons-row {
+  display: flex;       /* aligne les enfants sur une ligne */
+  gap: 15px;           /* espace entre les icônes */
+  justify-content: flex-start; /* ou center / space-between selon ton besoin */
+}
+
+.feature-text h2 {
+  margin: 0 0 10px;
+  font-size: 1.6em;
+}
+
+.feature-text p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.feature-card {
+  flex: 1;
+  min-width: 300px;
+  max-width: 480px;
+  height: 260px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .feature-row {
+    flex-direction: column;
+  }
+  .feature-text, .feature-card {
+    order: unset; /* sur mobile, on laisse l’ordre naturel */
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== AJOUTS POUR AÉRER LA PAGE ===== */
+.feature-row {
+  margin-bottom: 120px; /* plus d’espace entre les sections */
+}
+
+.main-title {
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+
+.feature-text p {
+  margin-bottom: 24px; /* plus d’air entre paragraphes */
+  line-height: 1.8;    /* lisibilité améliorée */
+}
+
+.content-wrapper {
+  padding-bottom: 100px; /* plus d’espace en bas */
+  margin-top: 100px; /* espace entre la vidéo et la section Features */
+}
+
+.hero-content {
+  gap: 20px; /* espace plus large entre titre et bouton */
+}
+/* Largeur globale de la page */
+.page-container {
+  max-width: 1200px;   /* largeur max */
+  margin: 0 auto;      /* centre la page */
+  padding: 0 60px;     /* espace à gauche/droite */
+  box-sizing: border-box;
+}
+.titre-couleur {
+  color: black; /* couleur bleue pour les titres */
+}
+.gras {
+  font-weight: 620; /* texte en gras */
+}
+/* ===== FAQ SECTION ===== */
+/* ===== FAQ SECTION ===== */
+/* .faq-section {
+
+  border-radius: 40px;
+  background: white;
+  padding: 100px 20px;
+} */
+
+/* ===== FAQ SECTION ===== */
+.faq-section {
+  background: #f4f4f4;       /* fond gris clair autour */
+  padding: 100px 20px;       /* espace autour de la section */
+}
+
+.faq-container {
+  max-width: 1000px;
+ 
+  margin: 0 auto;
+  background: #fff;          /* fond blanc du bloc */
+  border: 1px solid #ddd;    /* contour gris clair */
+  border-radius: 12px;       /* coins arrondis */
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  overflow: hidden;          /* applique l’arrondi aux enfants */
+  min-height: 300px; /* hauteur minimale du bloc FAQ */
+}
+
+/* Chaque question/réponse */
+.faq-item {
+  border-top: 1px solid #eee; /* ligne de séparation */
+}
+
+.faq-item:first-child {
+  border-top: none; /* pas de ligne au-dessus de la première */
+}
+
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.faq-toggle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #000;          /* rond noir par défaut */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  padding: 0 20px;
+}
+
+.faq-answer p {
+  margin: 0 0 20px;
+  color: #555;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Quand actif */
+.faq-item.active .faq-answer {
+  max-height: 300px; /* assez grand pour contenir le texte */
+}
+
+.faq-item.active .faq-toggle {
+  transform: rotate(45deg); /* + devient × */
+  background: #007bff;      /* rond bleu quand ouvert */
+}
+
+
+
+
+
+
+
