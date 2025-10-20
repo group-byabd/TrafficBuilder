@@ -18,3 +18,13 @@ window.addEventListener('scroll', () => {
       item.classList.toggle("active");
     });
   });
+  // Quand la page est complètement chargée
+    window.addEventListener("load", function() {
+  const preloader = document.getElementById("preloader");
+  setTimeout(() => {
+    preloader.style.opacity = "0";
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 500); // temps du fondu
+  }, 2000); // 👉 garde le preloader visible au moins 2 secondes
+});
