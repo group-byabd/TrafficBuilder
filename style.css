@@ -427,6 +427,73 @@ html {
 body.loaded .content {
   display: block;
 }
+/* ===== SECTION CONTACT ===== */
+.contact-section {
+  padding: 80px 20px;
+  background: black;
+  text-align: center;
+}
+
+.contact-section h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: white;
+}
+
+.contact-intro {
+  margin-bottom: 40px;
+  color: white;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form .form-group {
+  margin-bottom: 20px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: white;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.contact-form button {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background: #0056b3;
+}
 
 
 
