@@ -313,6 +313,8 @@ html {
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.08);
   overflow: hidden;
+  padding: 30px 20px; /* espace interne qui allonge visuellement */
+  /*height: 300px;
   /* pas de min-height */
 }
 
@@ -376,6 +378,12 @@ html {
   transform: rotate(45deg); /* + devient × */
   background: #007bff;      /* rond bleu quand ouvert */
 }
+.texte1 {
+  text-align: center; /* centre le texte dans son conteneur */
+}
+/* Style spécifique à la page de paiement */
+
+
 
 
 
