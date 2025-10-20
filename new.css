@@ -1,0 +1,87 @@
+/* ===== RESET ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== PAGE DE PAIEMENT ===== */
+body.payment-page {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: #000;              /* 👉 fond noir */
+  display: flex;
+  justify-content: center;       /* centre horizontalement */
+  align-items: center;           /* centre verticalement */
+  min-height: 100vh;             /* prend toute la hauteur de l’écran */
+}
+
+/* ===== CONTAINER ===== */
+.payment-container {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+  padding: 40px;
+  width: 380px;
+  box-sizing: border-box;
+}
+
+/* ===== TITRE ===== */
+.payment-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+/* ===== FORMULAIRE ===== */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* ===== LIGNES MULTIPLES ===== */
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+/* ===== BOUTON ===== */
+.pay-btn {
+  width: 100%;
+  padding: 14px;
+  background: black; /* violet premium */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.pay-btn:hover {
+  background: grey;
+}
