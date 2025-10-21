@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement Réussi !</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* ===== PAGE DE REMERCIEMENT RÉTRO ===== */
+    body {
+      font-family: 'Press Start 2P', monospace, sans-serif;
+      background: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* ===== CONTAINER REMERCIEMENT ===== */
+    .thank-you-container {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 0;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 8px #ff00ff;
+      padding: 30px;
+      width: 100%;
+      max-width: 450px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      border: 4px solid #00ffff;
+      text-align: center;
+    }
+
+    /* ===== TITRES ===== */
+    .thank-you-container h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #ffff00;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px #ff00ff;
+      font-size: 1.5em;
+    }
+
+    .thank-you-container p {
+        color: #fff;
+        font-size: 0.9em;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    /* ===== SLIDESHOW IMAGE ===== */
+    #slideshow-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border: 4px solid #00ffff;
+        margin-bottom: 20px;
+        background-color: #333;
+        transition: opacity 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE DE REMERCIEMENT -->
+  <div class="thank-you-container">
+    <h2>PAIEMENT REUSSI !</h2>
+    <p>Votre score a été sauvegardé ! Merci d'avoir joué.</p>
+    <img id="slideshow-image" src="" alt="Victory Image">
+    <p>Prochain niveau dans votre boite mail...</p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const slideshowImages = [
+            'https://placehold.co/400x200/1a1a2e/ffff00?text=LEVEL+UP!',
+            'https://placehold.co/400x200/ff00ff/ffffff?text=HIGH+SCORE!',
+            'https://placehold.co/400x200/00ffff/1a1a2e?text=PAYMENT+COMPLETE',
+            'https://placehold.co/400x200/ffffff/ff00ff?text=NEW+QUEST+UNLOCKED',
+            'https://placehold.co/400x200/ffff00/1a1a2e?text=CONTINUE?'
+        ];
+        let currentImageIndex = 0;
+        let slideshowInterval;
+
+        function startSlideshow() {
+            const imgElement = document.getElementById('slideshow-image');
+            if(!imgElement) return;
+
+            imgElement.src = slideshowImages[currentImageIndex];
+
+            slideshowInterval = setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % slideshowImages.length;
+                imgElement.style.opacity = 0;
+                setTimeout(() => {
+                    imgElement.src = slideshowImages[currentImageIndex];
+                    imgElement.style.opacity = 1;
+                }, 500);
+            }, 6000);
+        }
+
+        startSlideshow();
+    });
+  </script>
+
+</body>
+</html>
