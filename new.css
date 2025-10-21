@@ -1,87 +1,182 @@
-/* ===== RESET ===== */
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+   html, body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      height: 100%;
+      width: 100%;
+      overflow: hidden; /* Empêche tout défilement */
+      cursor: none; /* Cache le curseur au profit de la raquette */
+    }
 
-/* ===== PAGE DE PAIEMENT ===== */
-body.payment-page {
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background: #000;              /* 👉 fond noir */
-  display: flex;
-  justify-content: center;       /* centre horizontalement */
-  align-items: center;           /* centre verticalement */
-  min-height: 100vh;             /* prend toute la hauteur de l’écran */
-}
+    /* ===== PAGE DE PAIEMENT RÉTRO ===== */
+    body.payment-page {
+      font-family: 'Press Start 2P', monospace, sans-serif; /* Police pixelisée */
+      background: #1a1a2e; /* Fond sombre d'arcade */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+    }
+    
+    /* ===== JEU EN FOND ===== */
+    #game-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
 
-/* ===== CONTAINER ===== */
-.payment-container {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
-  padding: 40px;
-  width: 380px;
-  box-sizing: border-box;
-}
 
-/* ===== TITRE ===== */
-.payment-container h2 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #111;
-}
+    /* ===== CONTAINER DU FORMULAIRE ===== */
+    .payment-container {
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 0;
+      box-shadow: 0 0 0 4px #fff, 0 0 0 8px #ff00ff; /* Double bordure néon */
+      padding: 30px;
+      width: 100%;
+      max-width: 450px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      border: 4px solid #00ffff;
+      text-align: center;
+    }
 
-/* ===== FORMULAIRE ===== */
-.form-group {
-  margin-bottom: 20px;
-}
+    /* ===== TITRES ===== */
+    .payment-container h2 {
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 30px;
+      color: #ffff00; /* Jaune néon */
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px #ff00ff;
+      font-size: 1.5em;
+    }
 
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #333;
-}
+    /* ===== FORMULAIRE ===== */
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
 
-.form-group input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 1em;
-  transition: border-color 0.3s ease;
-}
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 400;
+      color: #00ffff; /* Cyan néon */
+      font-size: 0.8em;
+    }
 
-.form-group input:focus {
-  border-color: #007bff;
-  outline: none;
-}
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #fff;
+      background: #333;
+      border-radius: 0;
+      font-size: 1em;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+    }
+     .form-group input::placeholder {
+      color: #aaa;
+    }
 
-/* ===== LIGNES MULTIPLES ===== */
-.form-row {
-  display: flex;
-  gap: 15px;
-}
+     .form-group input.invalid {
+        border-color: #ff3860;
+        box-shadow: 0 0 10px #ff3860;
+    }
 
-.form-row .form-group {
-  flex: 1;
-}
+    .form-group input:focus {
+      border-color: #ffff00;
+      background: #444;
+      box-shadow: 0 0 10px #ffff00;
+      outline: none;
+    }
 
-/* ===== BOUTON ===== */
-.pay-btn {
-  width: 100%;
-  padding: 14px;
-  background: black; /* violet premium */
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1.1em;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
+    /* ===== LIGNES MULTIPLES ===== */
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
 
-.pay-btn:hover {
-  background: grey;
-}
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    /* ===== BOUTONS ===== */
+    .pay-btn, .tip-btn {
+      width: 100%;
+      padding: 15px;
+      border-radius: 0;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: none;
+      transition: all 0.2s ease;
+      border: 2px solid;
+      font-family: 'Press Start 2P', monospace;
+      text-transform: uppercase;
+    }
+
+    .pay-btn {
+      background: #ff00ff;
+      color: #fff;
+      margin-bottom: 15px;
+      border-color: #fff;
+    }
+
+    .pay-btn:hover {
+      background: #fff;
+      color: #ff00ff;
+      box-shadow: 0 0 15px #ff00ff;
+    }
+
+    .tip-btn {
+      background: #00ffff;
+      color: #1a1a2e;
+      border-color: #1a1a2e;
+    }
+    .tip-btn:hover {
+      background: #1a1a2e;
+      color: #00ffff;
+      border-color: #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+    }
+    .tip-btn:disabled {
+        opacity: 0.7;
+    }
+
+    /* ===== CONTENEUR DU CONSEIL GEMINI & ERREUR ===== */
+    .tip-container, #error-message {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #222;
+        color: #ffff00;
+        min-height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transition: all 0.5s ease;
+        font-size: 0.8em;
+        line-height: 1.4;
+    }
+    .tip-container {
+        border: 2px solid #ffff00;
+    }
+    .tip-container.hidden, #error-message.hidden {
+        display: none;
+    }
+    #error-message {
+        color: #ff3860;
+        border: 2px solid #ff3860;
+    }
+    .tip-container.error {
+        color: #ff3860;
+        border-color: #ff3860;
+    }
