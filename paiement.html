@@ -6,27 +6,28 @@
   <link rel="stylesheet" href="new.css">
 </head>
 <body class="payment-page">
+  <!-- FOND DE JEU INTERACTIF -->
+  <canvas id="game-canvas"></canvas>
+
+  <!-- FORMULAIRE DE PAIEMENT -->
   <div class="payment-container">
-    <h2>Paiement sécurisé</h2>
-    <form>
+    <h2>PAIEMENT</h2>
+    <form id="payment-form">
       <div class="form-group">
-        <label for="name">Nom complet</label>
-        <input type="text" id="name" placeholder="Jean Dupont" required>
+        <label for="name">Nom Complet</label>
+        <input type="text" id="name" placeholder="PLAYER ONE" required>
       </div>
-
       <div class="form-group">
-        <label for="email">Adresse email</label>
-        <input type="email" id="email" placeholder="exemple@mail.com" required>
+        <label for="email">Adresse Email</label>
+        <input type="email" id="email" placeholder="player@arcade.com" required>
       </div>
-
       <div class="form-group">
-        <label for="card">Numéro de carte</label>
-        <input type="text" id="card" placeholder="1234 5678 9012 3456" required>
+        <label for="card">Numero De Carte</label>
+        <input type="text" id="card" placeholder="**** **** **** ****" required>
       </div>
-
       <div class="form-row">
         <div class="form-group">
-          <label for="expiry">Expiration</label>
+          <label for="expiry">EXP</label>
           <input type="text" id="expiry" placeholder="MM/AA" required>
         </div>
         <div class="form-group">
@@ -34,9 +35,15 @@
           <input type="text" id="cvv" placeholder="123" required>
         </div>
       </div>
-
-      <button type="submit" class="pay-btn">Payer maintenant</button>
+      <button type="submit" class="pay-btn">INSERER PIECE</button>
     </form>
+    <!-- Section Gemini API -->
+    <button type="button" id="gemini-tip-btn" class="tip-btn">CHEAT CODE</button>
+    <div id="tip-container" class="tip-container hidden"></div>
+    <div id="error-message" class="hidden"></div>
   </div>
+    <!--<a type="button" class="tip-btn">Retourner a la page d'acceuil</a>-->
+    <script src="pay.js"></script>
+    
 </body>
 </html>
