@@ -71,6 +71,13 @@
         background-color: #333;
         transition: opacity 0.5s ease-in-out;
     }
+     .tip-btn {
+      background: #00ffff;
+      color: #1a1a2e;
+      border-color: #1a1a2e;
+      bottom: 0;            /* collé en bas */
+      left: 0;  
+    }
   </style>
 </head>
 <body>
@@ -81,7 +88,9 @@
     <p>Votre score a été sauvegardé ! Merci d'avoir joué.</p>
     <img id="slideshow-image" src="" alt="Victory Image">
     <p>Prochain niveau dans votre boite mail...</p>
+    <button type="button" id="gemini-tip-btn" class="tip-btn" href="index.html">CHEAT CODE</button>
   </div>
+  
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
